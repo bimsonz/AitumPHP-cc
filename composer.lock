@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cff5d13140aa1e796fb60852b544d4a0",
+    "content-hash": "c33a16140dea2fe4a24525a7c1f16d0a",
     "packages": [
         {
             "name": "bimsonz/aitum-php",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bimsonz/AitumPHP.git",
-                "reference": "b41718e43e751d0c8839de083715c5f7d9acbf8c"
+                "reference": "7a188ea390a6f790e89dc751794fa875cb549455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bimsonz/AitumPHP/zipball/b41718e43e751d0c8839de083715c5f7d9acbf8c",
-                "reference": "b41718e43e751d0c8839de083715c5f7d9acbf8c",
+                "url": "https://api.github.com/repos/bimsonz/AitumPHP/zipball/7a188ea390a6f790e89dc751794fa875cb549455",
+                "reference": "7a188ea390a6f790e89dc751794fa875cb549455",
                 "shasum": ""
             },
             "require": {
@@ -32,12 +32,18 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Zach Bimson",
+                    "email": "zach@bison.digital"
+                }
+            ],
             "description": "PHP Library for Aitum's public API",
             "support": {
                 "issues": "https://github.com/bimsonz/AitumPHP/issues",
                 "source": "https://github.com/bimsonz/AitumPHP/tree/main"
             },
-            "time": "2023-04-23T16:08:15+00:00"
+            "time": "2023-04-23T19:01:07+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -366,6 +372,61 @@
                 }
             ],
             "time": "2023-04-17T16:11:26+00:00"
+        },
+        {
+            "name": "kevinlebrun/colors.php",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinlebrun/colors.php.git",
+                "reference": "cdda5eee41314b87cd5a8bb91b1ffc7c0210e673"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/cdda5eee41314b87cd5a8bb91b1ffc7c0210e673",
+                "reference": "cdda5eee41314b87cd5a8bb91b1ffc7c0210e673",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "1.0.*",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Colors": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Le Brun",
+                    "email": "lebrun.k@gmail.com",
+                    "homepage": "http://kevinlebrun.fr",
+                    "role": "developer"
+                }
+            ],
+            "description": "Colors for PHP CLI scripts",
+            "homepage": "https://github.com/kevinlebrun/colors.php",
+            "keywords": [
+                "cli",
+                "color",
+                "colors",
+                "console",
+                "shell"
+            ],
+            "support": {
+                "issues": "https://github.com/kevinlebrun/colors.php/issues",
+                "source": "https://github.com/kevinlebrun/colors.php/tree/master"
+            },
+            "time": "2018-05-30T08:34:23+00:00"
         },
         {
             "name": "nikic/fast-route",

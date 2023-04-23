@@ -2,6 +2,11 @@
 
 require_once 'vendor/autoload.php';
 
+use Aitum\CustomCode\Client\SwooleClientAdapter;
+use Aitum\CustomCode\Command\RegisterActionsCommand;
+use Aitum\CustomCode\Service\ActionCollector;
+use Aitum\Dispatcher\ApiCommandDispatcher;
+use Colors\Color;
 use FastRoute\RouteCollector;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
@@ -13,6 +18,21 @@ $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
 });
 
 $server = new Server("127.0.0.1", 7252);
+
+$server->on('start', function ($server) {
+  $io = new Color();
+
+  echo $io('AitumPHP CC: Webserver started.')->cyan()->bold() . PHP_EOL;
+
+  $actionCollector = new ActionCollector();
+  $actionCollection = $actionCollector->collect();
+
+  $apiCommandDispatcher = new ApiCommandDispatcher(new SwooleClientAdapter());
+
+  $apiCommandDispatcher->dispatch(
+    new RegisterActionsCommand($actionCollection)
+  );
+});
 
 $server->on('request', function (Request $request, Response $response) use ($dispatcher) {
   $routeInfo = $dispatcher->dispatch($request->server['request_method'], $request->server['request_uri']);
