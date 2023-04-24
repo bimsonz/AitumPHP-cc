@@ -17,15 +17,17 @@ $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
   $r->addRoute('POST', '/rules/{id}', 'Aitum\CustomCode\Controller\Action::trigger');
 });
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $server = new Server("127.0.0.1", 7252);
 
-$server->on('start', function ($server) {
+$actionCollector = new ActionCollector();
+$actionCollection = $actionCollector->collect();
+
+$server->on('start', function ($server) use ($actionCollection){
   $io = new Color();
-
   echo $io('AitumPHP CC: Webserver started.')->cyan()->bold() . PHP_EOL;
-
-  $actionCollector = new ActionCollector();
-  $actionCollection = $actionCollector->collect();
 
   $apiCommandDispatcher = new ApiCommandDispatcher(new SwooleClientAdapter());
 
@@ -34,14 +36,20 @@ $server->on('start', function ($server) {
   );
 });
 
-$server->on('request', function (Request $request, Response $response) use ($dispatcher) {
+$server->on('request', function (Request $request, Response $response) use ($dispatcher, $actionCollection) {
   $routeInfo = $dispatcher->dispatch($request->server['request_method'], $request->server['request_uri']);
 
   switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
-      [$controller, $action] = explode('::', $routeInfo[1]);
+      [$controller, $controllerAction] = explode('::', $routeInfo[1]);
       $controllerInstance = new $controller;
-      $response->end($controllerInstance->$action($routeInfo[2], $request->getContent()));
+
+      if (!empty($routeInfo[2])) {
+        $action = $actionCollection->getActionById($routeInfo[2]['id']);
+        $response->end($controllerInstance->$controllerAction($action, $request->getContent()));
+      } else {
+        $response->end($controllerInstance->$controllerAction($routeInfo[2], $request->getContent()));
+      }
       break;
 
     case FastRoute\Dispatcher::NOT_FOUND:
