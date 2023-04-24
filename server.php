@@ -17,8 +17,14 @@ $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
   $r->addRoute('POST', '/rules/{id}', 'Aitum\CustomCode\Controller\Action::trigger');
 });
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+try {
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
+} catch (\Exception $exception) {
+  $io = new Color();
+  echo $io('Config not found! Run "composer aitum-cc:setup" to get started!')->cyan()->bold()->bg_white() . PHP_EOL;
+  exit;
+}
 
 $server = new Server("127.0.0.1", 7252);
 

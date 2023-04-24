@@ -18,6 +18,11 @@
         "nikic/fast-route": "^1.3",
         "bimsonz/aitum-php": "dev-main",
         "kevinlebrun/colors.php": "^1.0",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "ramsey/uuid": "^4.7",
+        "composer/composer": "^2.5"
+    },
+    "scripts": {
+        "aitum-cc:setup": "Aitum\\CustomCode\\Command\\EnvSetupCommand"
     }
 }
