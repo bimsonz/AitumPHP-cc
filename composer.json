@@ -1,5 +1,5 @@
 {
-    "name": "zbimson/aitum-php-cc",
+    "name": "bimsonz/aitum-php-cc",
     "description": "Library code for Aitum's PHP custom code framework.",
     "type": "project",
     "autoload": {
