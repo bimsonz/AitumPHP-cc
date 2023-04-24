@@ -3,6 +3,11 @@
 namespace Aitum\CustomCode\Actions;
 
 use Aitum\CustomCode\Model\ActionInterface;
+use Aitum\CustomCode\Model\BooleanInput;
+use Aitum\CustomCode\Model\FloatInput;
+use Aitum\CustomCode\Model\InputCollection;
+use Aitum\CustomCode\Model\IntInput;
+use Aitum\CustomCode\Model\StringInput;
 use Colors\Color;
 
 class DummyAction extends AbstractAction implements ActionInterface {
@@ -11,37 +16,26 @@ class DummyAction extends AbstractAction implements ActionInterface {
     return 'DummyAction';
   }
 
-  public function inputs(): ?array {
-    return [
-      'testStringInput' => [
-        'type' => 2,
-        'label' => 'What is your name?',
-        'validation' => [
-          'required' => false,
-        ],
-      ],
-      'testBooleanInput' => [
-        'type' => 3,
-        'label' => 'Are you a fun person?',
-        'validation' => [
-          'required' => false,
-        ],
-      ],
-      'testIntInput' => [
-        'type' => 0,
-        'label' => 'How old are you?',
-        'validation' => [
-          'required' => false,
-        ],
-      ],
-      'testFloatInput' => [
-        'type' => 1,
-        'label' => 'Volume level',
-        'validation' => [
-          'required' => false,
-        ],
-      ],
-    ];
+  public function inputs(): ?InputCollection {
+    $inputs = new InputCollection();
+
+    $inputs->addInput(
+      new IntInput('testIntInput', 'How old are you?')
+    );
+
+    $inputs->addInput(
+      new FloatInput('testFloatInput', 'Volume level')
+    );
+
+    $inputs->addInput(
+      new StringInput('testStringInput', 'What is your name?')
+    );
+
+    $inputs->addInput(
+      new BooleanInput('testBooleanInput', 'Are you a fun person?')
+    );
+
+    return $inputs;
   }
 
   public function execute($payload): void {

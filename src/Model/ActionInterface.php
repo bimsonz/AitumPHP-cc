@@ -8,7 +8,7 @@ interface ActionInterface extends \JsonSerializable {
 
   public function name(): string;
 
-  public function inputs(): ? array;
+  public function inputs(): ?InputCollection;
 
   public function execute($payload): void;
 }

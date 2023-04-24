@@ -19,7 +19,7 @@ class RegisterActionsCommand implements ApiCommandInterface {
       'name' => $_ENV['AITUM_CC_HOST'],
       'actions' => $this->actions,
     ];
-
+    
     return new ApiCommandRequest(
       '/cc/register',
       'POST',
