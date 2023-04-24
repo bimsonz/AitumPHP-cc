@@ -1,6 +1,6 @@
 {
     "name": "zbimson/aitum-php-cc",
-    "description": "Custom code wrapper for AitumPHP",
+    "description": "Library code for Aitum's PHP custom code framework.",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -14,16 +14,10 @@
         }
     ],
     "require": {
-        "ext-swoole": "^5.0",
-        "swoole/ide-helper": "^5.0",
-        "nikic/fast-route": "^1.3",
         "bimsonz/aitum-php": "dev-main",
         "kevinlebrun/colors.php": "^1.0",
         "vlucas/phpdotenv": "^5.5",
         "ramsey/uuid": "^4.7",
         "composer/composer": "^2.5"
-    },
-    "scripts": {
-        "aitum-cc:setup": "Aitum\\CustomCode\\Command\\EnvSetupCommand"
     }
 }
