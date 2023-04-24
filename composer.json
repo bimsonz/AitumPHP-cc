@@ -14,6 +14,7 @@
         }
     ],
     "require": {
+        "ext-swoole": "^5.0",
         "swoole/ide-helper": "^5.0",
         "nikic/fast-route": "^1.3",
         "bimsonz/aitum-php": "dev-main",

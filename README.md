@@ -5,6 +5,7 @@ A PHP framework for building custom Aitum actions in code.
 ## Prerequisites
 
 - PHP 8.1 or later
+- Swoole
 - Composer
 - An Aitum account with API access
 

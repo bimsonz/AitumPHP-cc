@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdcf1bb4810b120df6a3969c2c91a04e",
+    "content-hash": "625c090f63c767c88ecf57ef020a705e",
     "packages": [
         {
             "name": "bimsonz/aitum-php",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bimsonz/AitumPHP.git",
-                "reference": "7a188ea390a6f790e89dc751794fa875cb549455"
+                "reference": "c9cfad8b4aa62a1064e0b8364a0c6d0202524fcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bimsonz/AitumPHP/zipball/7a188ea390a6f790e89dc751794fa875cb549455",
-                "reference": "7a188ea390a6f790e89dc751794fa875cb549455",
+                "url": "https://api.github.com/repos/bimsonz/AitumPHP/zipball/c9cfad8b4aa62a1064e0b8364a0c6d0202524fcb",
+                "reference": "c9cfad8b4aa62a1064e0b8364a0c6d0202524fcb",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 "issues": "https://github.com/bimsonz/AitumPHP/issues",
                 "source": "https://github.com/bimsonz/AitumPHP/tree/main"
             },
-            "time": "2023-04-23T19:01:07+00:00"
+            "time": "2023-04-24T01:17:29+00:00"
         },
         {
             "name": "brick/math",
@@ -3324,7 +3324,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-swoole": "^5.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }
